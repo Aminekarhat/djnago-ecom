@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% include "navbar.html" %}
+    {% include "base.html" %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container mt-4">
+        <p>Welcome to the home page!</p>
+        
+        <div class="row">
+            {% for prod in prods %}
+            <div class="col-lg-3 mb-3">
+                <div class="card h-100">
+                    <img src="{{ prod.image }}" class="card-img-top" alt="{{ prod.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ prod.name }}</h5>
+                        <p class="card-text">{{ prod.description }}</p>
+                        <p class="card-text">{{ prod.price }} MAD</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="" class="btn btn-primary btn-sm">Buy Now</a>
+                        <a href="#" class="btn btn-secondary btn-sm">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
